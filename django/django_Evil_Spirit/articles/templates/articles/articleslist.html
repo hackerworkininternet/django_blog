@@ -1,32 +1,25 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-	<head>
+{% block title %}
 
-		<meta charset="utf-8">
-		<title>Articles</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	Articles
 
-	</head>
+{% endblock %}
 
-	<body>
 
-		<div class="container">
+{% block content %}
+	<div class="container">
+				
+		<h1>Articles List</h1>
+		<p>welcome to Articles List</p>
 			
-			<h1>Articles List</h1>
-			<p>welcome to Articles List</p>
-		
-			{% for article in articles %}
+		{% for article in articles %}
 
-				<h2><a href="#">{{article.title}}</a></h2>
-				<p>{{article.snippet}}</p>
-				<p>{{article.date}}</p>
-		
-			{% endfor %}
+			<h2><a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a></h2>
+			<p>{{article.snippet}}</p>
+			<p>{{article.date}}</p>
+			
+		{% endfor %}
 
-		</div>
-
-	</body>
-
-</html>
+	</div>
+{% endblock %}
