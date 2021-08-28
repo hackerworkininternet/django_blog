@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="article-dtail">
+		
+		<div class="article">
+			
+			<img src="{{article.image.url}}" alt="not found">
+			<h1>{{article.title}}</h1>
+			<p>{{article.body}}</p>
+			<p>{{article.date}}</p>
+
+		</div>
+
+	</div>
+{% endblock %}
